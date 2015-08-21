@@ -97,17 +97,32 @@ define(["require"], function(require) {
     };
 
 
-    function send(code) {
+    function send(code, sender) {
+
+        
+
+    };
+
+    function sendCommand(cmd, sender){
+
 
 
     };
+
+    function commandFactory() {
+
+    
+        return [];
+
+    };
+
 
     return {
         settings: default_settings,
         presets: presets,
         compile: compile,
         send: send,
-        commands: []
+        commands: commandFactory
     };
 
 
