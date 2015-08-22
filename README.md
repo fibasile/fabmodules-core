@@ -35,7 +35,8 @@ You can include it in your project like this:
     
     var reader = input_plugins[0];
     
-    // you read 
+    // Read your image from an URL or
+    // using a FileReader and passing an ArrayBuffer
     
     var img_url = 'http://test.com/img.png';
     
@@ -47,7 +48,25 @@ You can include it in your project like this:
         // in bitmap.preview we have an Image with a bitmap preview_image
         var img = bitmap.preview;
         
-    
+        
+        // now we make a 2d path, with the default settings
+        
+        Bitmap.getPath("2D", function(path){
+        
+             // get the vinyl cutter, defined in the configuration
+        
+             var machine = FabModules.machines.get("Vinyl-cutter");
+        
+             var code = machine.render(path);           
+             
+             machine.send( code, function(error,result){
+        
+                // check if job sent to the machine
+                // otherwise error is set
+        
+        
+             });
+        });
     });
     
     

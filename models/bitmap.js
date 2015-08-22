@@ -14,7 +14,7 @@
 //
 
 
-define([],function(){
+define(['path'],function(Path){
 
 
     var Bitmap = function(info,preview){
@@ -30,9 +30,8 @@ define([],function(){
 
 
 
-    Bitmap.prototype.getPath=function(writer,config,context) { 
+    Bitmap.prototype.getPath=function(config,context) { 
     
-        
     
     
     

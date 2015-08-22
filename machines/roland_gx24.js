@@ -27,6 +27,9 @@ define(["require","writers/hpgl"], function(require,HPGLWriter) {
  <br><input type="radio" name="origin" id="mod_bottom_left" checked> left bot right <input type="radio" name="origin" id="mod_bottom_right">
 */
 
+
+
+
     var origin = {};
     origin.top_left = "mod_top_left";
     origin.top_right = "mod_top_right";
@@ -40,6 +43,9 @@ define(["require","writers/hpgl"], function(require,HPGLWriter) {
         origin: origin.top_left,
         diameter: 0.20
     };
+
+    
+
 
     var presets = function() {
         return [{
@@ -78,12 +84,7 @@ define(["require","writers/hpgl"], function(require,HPGLWriter) {
 
     };
 
-    function commandFactory() {
 
-    
-        return [];
-
-    };
 
 
     return {
