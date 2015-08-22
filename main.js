@@ -1,16 +1,24 @@
-/*
-	Fab Modules core.js
-	This module loads and configures require.js, the inits the library
-
-
-// Fiore Basile <fiore.basile@gmail.com>
 //
-// This work may be reproduced, modified, distributed, performed, and
-// displayed for any purpose, but must acknowledge the fab modules
-// project. Copyright is retained and must be preserved. The work is
-// provided as is; no warranty is provided, and users accept all
+// Author: Fiore Basile <fiore.basile@gmail.com> - Fab Lab Toscana
+//
+// Based on Fabmodules:
+//
+// Neil Gershenfeld 
+// (c) Massachusetts Institute of Technology 2014
+// 
+// This work may be reproduced, modified, distributed, performed, and 
+// displayed for any purpose, but must acknowledge the fab modules 
+// project. Copyright is retained and must be preserved. The work is 
+// provided as is; no warranty is provided, and users accept all 
 // liability.
 //
+
+
+
+/*
+	Fab Modules main.js
+	This module loads and configures require.js, the inits the library
+
 
 
 */
@@ -26,21 +34,6 @@
 
 /*
 
-require(["mods/mod_ui","inputs/mod_inputs","mods/mod_config"], function(mod_ui, mod_inputs,mod_config){
-
-   mod_config.init();
-
-   mod_ui.initGUI();
-   mod_inputs.initInputs();
-
-   // temporary workaround for add_process and edit_process
-   // ideally we could have a json process descriptor and a global process registry
-
-   window.mod_add_process = mod_ui.add_process;
-   window.mod_edit_process = mod_ui.edit_process;
-
-
-});
 */
 
 define(['util/config'], function(mod_config) {
