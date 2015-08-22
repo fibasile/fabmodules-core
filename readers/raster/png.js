@@ -1,6 +1,9 @@
 define(['require','models/bitmap'], function(require, Bitmap) {
 
 
+    var PNGReader = {};
+
+
     function parseDPI(buf, cb) {
         //
         // get DPI
@@ -113,7 +116,7 @@ define(['require','models/bitmap'], function(require, Bitmap) {
 
        callback(metadata, preview_image)
      **/
-    function read(packet, success, fail) {
+    PNGReader.read = function(packet, success, fail) {
         console.log("Reading packet");
         console.log(packet);
         parseDPI(packet.data, function(dpi) {
@@ -139,8 +142,11 @@ define(['require','models/bitmap'], function(require, Bitmap) {
     };
 
 
-    return {
-        read: read
+    PNGReader.mediatype = function(){ 
+        return ['image/png'];    
     };
+
+
+    return PNGReader;
 
 });

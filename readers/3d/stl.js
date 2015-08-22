@@ -1,6 +1,8 @@
 define(['require', 'models/mesh'], function(require,Mesh) {
 
+    var STLReader = {};
 
+    // private function
     function parseSTL(buf, cb) {
     
         var endian = true;
@@ -102,7 +104,7 @@ define(['require', 'models/mesh'], function(require,Mesh) {
 
        callback(metadata, preview_image)
      **/
-    function read(packet, success, fail) {
+    STLReader.read = function(packet, success, fail) {
         console.log("Reading packet");
         console.log(packet);
         parseSTL(packet.data, function(mesh) {
@@ -138,8 +140,11 @@ define(['require', 'models/mesh'], function(require,Mesh) {
     };
 
 
-    return {
-        read: read
+    STLReader.mediatype(){ 
+        return ['application/stl'];
     };
+
+
+    return STLReader;
 
 });

@@ -1,6 +1,9 @@
 define(['require', 'util/buffers', 'models/bitmap'], function(require, bufferUtil, Bitmap) {
 
 
+    var SVGBitmapReader={};
+
+
     function parseBuffer(buf, cb) {
 
         arrayBufferToString(buf, function(str) {
@@ -97,7 +100,7 @@ define(['require', 'util/buffers', 'models/bitmap'], function(require, bufferUti
 
        callback(metadata, preview_image)
      **/
-    function read(packet, success, fail) {
+    SVGBitmapReader.read = function(packet, success, fail) {
         console.log("Reading packet");
         console.log(packet);
         parseBuffer(packet.data, function(info) {
@@ -113,11 +116,11 @@ define(['require', 'util/buffers', 'models/bitmap'], function(require, bufferUti
         });
     };
 
+    SVGBitmapReader.mediatype = function(){
+        return ['application/svg+xml','image/svg+xml'];
+    }
 
 
-
-    return {
-        read: read
-    };
+   return SVGBitmapReader;
 
 });
