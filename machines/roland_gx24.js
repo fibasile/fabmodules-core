@@ -72,9 +72,11 @@ define(["require","writers/hpgl"], function(require,HPGLWriter) {
 
 
 
-    function send(code, sender) {
+    function send(code, success, progress) {
 
-        
+        //var sender = WebSocketSender()
+        //sender.setttings 
+        //sender.write(code, success, progress);        
 
     };
 

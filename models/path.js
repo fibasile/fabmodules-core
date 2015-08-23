@@ -32,6 +32,15 @@ define([],function(){
 
 
 
+    Path.prototype.getPath=function(routine, source){
+    
+    
+    
+    };
+
+
+
+
     return Path;
 
 

@@ -24,7 +24,7 @@ You can include it in your project like this:
     
     });
 
-### Example: Read in a PNG image and send it to the vinyl cutter
+### Example: Read in a PNG image, make a path and send it to the vinyl cutter
 
     // You want to read a png into a Bitmap. 
 
@@ -53,19 +53,37 @@ You can include it in your project like this:
         
         Bitmap.getPath("2D", function(path){
         
-             // get the vinyl cutter, defined in the configuration
+            // get the vinyl cutter, in your app this should be defined in the configuration
+            // configuring the machine means setting the ip address, model, driver, etc
+            var machine = FabModules.machines["Vinyl-cutter"];
+                    
+            
+            // this is the default config for cutting vinyl
+            // you should prompt the user for options
+                
+            var cfg = machine.presets[0]; 
+            var context = {
+                width: 300,
+                height: 200,
+                dpi: 72
+            };
+            var code = machine.render(cfg,context,path);           
+                     
+            machine.send( code, function(error,result){
         
-             var machine = FabModules.machines.get("Vinyl-cutter");
-        
-             var code = machine.render(path);           
-             
-             machine.send( code, function(error,result){
-        
-                // check if job sent to the machine
-                // otherwise error is set
+                    // check if job sent to the machine
+                    // otherwise error is set
         
         
-             });
+            }, function(progress){
+                 
+                    // show progress during the operation
+                 
+                 
+            });                
+            
+        
+
         });
     });
     

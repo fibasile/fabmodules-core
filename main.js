@@ -34,7 +34,20 @@
 
 /*
 
+
+
+
+
 */
+
+require.config({
+    //paths etc
+},
+[
+    // underscore automatically register itself as underscore module
+    'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.2.1/underscore-min.js'
+])
+
 
 define(['util/config'], function(mod_config) {
 
